@@ -1,7 +1,23 @@
-@import url("./../Colors.css");
+@import url("./../style/Colors.css");
 
 .Login-box {
   display: -webkit-flex;
   flex-flow: column;
   background-color: var(--white);
+  width: 100%;
+  height: 100%;
+
+  .Left {
+    display: -webkit-flex;
+    background-color: var(--dark-green);
+    width: 100%;
+    height: 100%;
+  }
+
+  .Right {
+    display: -webkit-flex;
+    width: 100%;
+    height: 100%;
+    background-color: var(--light-gray)
+  }
 }

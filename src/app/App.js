@@ -1,7 +1,11 @@
 import React from "react";
 
+//STYLE
+import './app.scss'
+
 //COMPONENTS
-import Login from "./login/login";
+import Login from "../login/login";
+
 
 function App() {
   return (
