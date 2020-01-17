@@ -26,7 +26,7 @@
         display: flex;
         flex-flow: column;
         align-items: center;
-
+        position: relative;
         .Form-title-welcome {
           font-size: 3rem;
           padding-top: 20px;
@@ -36,6 +36,8 @@
           font-family: "Exo", sans-serif;
           font-size: 5rem;
           font-weight: bold;
+          position: absolute;
+          top: 50px;
         }
       }
       .Form-info {
@@ -45,6 +47,7 @@
         padding-top: 50px;
         font-size: 1rem;
         font-family: "Exo", sans-serif;
+        padding-top: 110px;
         label {
           opacity: 0.7;
           margin-bottom: 8px;
@@ -84,7 +87,7 @@
       }
       .Form-singup {
         display: flex;
-        padding-top: 80px;
+        padding-top: 70px;
         width: 250px;
         .Form-sigup-link {
           margin-left: 5px;
