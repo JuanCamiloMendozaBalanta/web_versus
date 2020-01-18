@@ -4,15 +4,13 @@ import React from "react";
 //STYLE
 import "./login.scss";
 
-const Login = () => {
-  const onSignIn = googleUser => {
-    const profile = googleUser.getBasicProfile();
-    console.log("ID: " + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log("Name: " + profile.getName());
-    console.log("Image URL: " + profile.getImageUrl());
-    console.log("Email: " + profile.getEmail()); // This is null if the 'email' scope is not present.
-  };
+//LIBRARIES
+import { GoogleLogin } from "react-google-login";
 
+const Login = () => {
+  const responseGoogle = response => {
+    console.log("===>", response);
+  };
   return (
     <div className="Login-box">
       <div className="Wrap">
@@ -29,12 +27,24 @@ const Login = () => {
             <button className="Form-info-button" type="submit">
               LOGIN
             </button>
-            <button
-              className="Form-info-button-google g-signin2"
-              onSuccess={onSignIn}
+            <GoogleLogin
+              clientId="626485962471-pfovkpdk1h19brtirr8e7q95thbhbh4v.apps.googleusercontent.com"
+              render={renderProps => (
+                <button
+                  className="Form-info-button-google"
+                  onClick={renderProps.onClick}
+                  disabled={renderProps.disabled}
+                >
+                  LOGIN WITH GOOGLE
+                </button>
+              )}
+              buttonText="Login"
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
+              cookiePolicy={"single_host_origin"}
             >
               LOGIN IN WITH GOOGLE
-            </button>
+            </GoogleLogin>
           </form>
           <div className="Form-singup">
             <div className="Form-sigup-text">Dont have an account ? </div>
