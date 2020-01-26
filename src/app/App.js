@@ -1,17 +1,21 @@
 import React from "react";
+//ROUTE
+import { HashRouter } from 'react-router-dom';
 
 //STYLE
 import './app.scss'
 
 //COMPONENTS
-import Login from "../login/login";
+import Home from "../home/home";
 
 
 function App() {
   return (
-    <div className="App">
-      <Login />
-    </div>
+    <HashRouter>
+      <div className="App">
+        <Home />
+      </div>
+    </HashRouter>
   );
 }
 
