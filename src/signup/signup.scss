@@ -1,4 +1,4 @@
-@import url("./../style/Colors.css");
+@import url("./../style/main.scss");
 
 .Signup-box {
   display: -webkit-flex;
@@ -13,24 +13,23 @@
     align-items: center;
     background-color: white;
     .Signup-header {
-      display: -webkit-flex;
-      padding: 20px;  
-      width: 400px;
-      height: 600px;
+      padding-top: 20px;
+      display: flex;
       flex-flow: column;
-      border: 2px solid #839d9c;
-      border-radius: 15px;
-      color: var(--dark-green);
       .Signup-header-gettingStarted{
         font-family: "Exo", sans-serif;
         font-size: 3.0rem;
         font-weight: bold;
       }
       .Signup-header-aha{
-        margin-top: 10px;
+        padding-top: 10px;
         font-size: 1.2rem;
-        opacity: 0.5;
+        opacity: 0.7;
       }
+    }
+    .Form-info {
+      padding: 40px 0px 30px 0px;
+      width: 343px;
     }
   }
 }

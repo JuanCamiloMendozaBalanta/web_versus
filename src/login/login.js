@@ -43,11 +43,10 @@ const Login = () => {
               onFailure={responseGoogle}
               cookiePolicy={"single_host_origin"}
             >
-              LOGIN IN WITH GOOGLE
             </GoogleLogin>
           </form>
           <div className="Form-singup">
-            <div className="Form-sigup-text">Dont have an account ? </div>
+            <div className="Form-sigup-text">Don't have an account ? </div>
             <a className="Form-sigup-link">Sign up</a>
           </div>
         </div>

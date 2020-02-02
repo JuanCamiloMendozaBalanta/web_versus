@@ -1,4 +1,4 @@
-@import url("./../style/Colors.css");
+@import url("./../style/main.scss");
 
 .Login-box {
   display: -webkit-flex;
@@ -12,80 +12,15 @@
     justify-content: center;
     align-items: center;
     background-color: white;
-    .Form-box {
-      display: -webkit-flex;
-      padding: 20px;
-      width: 400px;
-      align-items: center;
-      height: 600px;
-      flex-flow: column;
-      border: 2px solid #839d9c;
-      border-radius: 15px;
-      color: var(--dark-green);
-      .Form-title {
-        display: flex;
-        flex-flow: column;
-        align-items: center;
-        position: relative;
-        .Form-title-welcome {
-          font-size: 3rem;
-          padding-top: 20px;
-          opacity: 0.5;
-        }
-        .Form-title-versus {
-          font-family: "Exo", sans-serif;
-          font-size: 5rem;
-          font-weight: bold;
-          position: absolute;
-          top: 50px;
-        }
-      }
-      .Form-info {
-        display: flex;
-        flex-flow: column;
-        width: 250px;
-        padding-top: 50px;
-        font-size: 1rem;
-        font-family: "Exo", sans-serif;
-        padding-top: 110px;
-        label {
-          opacity: 0.7;
-          margin-bottom: 8px;
-        }
-        input {
-          margin-bottom: 25px;
-          border: none;
-          border-bottom: solid 1px;
-          padding-left: 5px;
-          padding-bottom: 3px;
-          color: var(--dark-green);
-          font-family: "Exo", sans-serif;
-          font-weight: bold;
-          font-size: 1rem;
-        }
-        button {
-          margin-top: 20px;
-          background-color: var(--green);
-          padding: 20px;
-          border: none;
-          border-radius: 25px;
-          color: white;
-          font-weight: bold;
-        }
-        .Form-info-button-google {
-          background-color: var(--light-green);
-        }
-      }
-      .Form-singup {
-        display: flex;
-        padding-top: 70px;
-        width: 250px;
-        .Form-sigup-link {
-          margin-left: 5px;
-          color: var(--green);
-          cursor: pointer;
-        }
-      }
+  }
+  .Form-singup {
+    display: flex;
+    padding: 60px 0px 30px 0px;
+    width: 250px;
+    .Form-sigup-link {
+      margin-left: 5px;
+      color: var(--green);
+      cursor: pointer;
     }
   }
 }
