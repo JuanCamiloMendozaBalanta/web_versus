@@ -1,28 +1,29 @@
 import axios from 'axios';
-const { apiUrl } = require('../../../configuration');
-const { showError } = require('../error');
+const { apiUrl } = require('../../configuration');
 
-const LOGIN = 'LOGIN';
+export const USER = 'USER';
 
-const login = data => {
-  axios
-    .post(`${apiUrl}/loing`, data)
-    .then(response => {
-      const { data } = response;
-      localStorage.setItem('token', data);
-    })
-    .catch(error => {
-      dispatch(showError(`Error en el login`));
-    });
-};
-
-const getHeader = () => {
-  return {
-    headers: { Authorization: `${localStorage.getItem('token')}` }
-  };
-};
-
-module.exports = {
-  login,
-  getHeader
+export const login = async info => {
+  try {
+    console.log('===>', info);
+    return dispatch => {
+      console.log('===>', info);
+      return axios
+        .post(`${apiUrl}/login`, info)
+        .then(response => {
+          const { data } = response;
+          localStorage.setItem('token', data.token);
+          dispatch({
+            type: USER,
+            payload: data.player
+          });
+          return data.player;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    };
+  } catch (error) {
+    console.log('===>', error);
+  }
 };
