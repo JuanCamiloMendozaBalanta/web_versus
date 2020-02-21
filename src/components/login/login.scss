@@ -1,4 +1,4 @@
-@import url("./../style/main.scss");
+@import url('../../style/main.scss');
 
 .Login-box {
   display: -webkit-flex;
@@ -21,6 +21,10 @@
       margin-left: 5px;
       color: var(--green);
       cursor: pointer;
+      border: solid 1px transparent;
+    }
+    .Form-sigup-link:hover {
+      border: solid 1px var(--green);
     }
   }
 }

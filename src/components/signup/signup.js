@@ -1,16 +1,16 @@
 //REACT
-import React from "react";
+import React from 'react';
 
 //STYLE
-import "./signup.scss";
+import './signup.scss';
 
 //LIBRARIES
-import { GoogleLogin } from "react-google-login";
-
+import { GoogleLogin } from 'react-google-login';
+import { Link } from 'react-router-dom';
 
 const Signup = () => {
   const responseGoogle = response => {
-    console.log("===>", response);
+    console.log('===>', response);
   };
   return (
     <div className="Signup-box">
@@ -18,7 +18,9 @@ const Signup = () => {
         <div className="Form-box">
           <div className="Signup-header">
             <div className="Signup-header-gettingStarted">Getting Started</div>
-            <a className="Signup-header-aha">Already have an account</a>
+            <Link className="Signup-header-aha" to="/login">
+              Already have an account
+            </Link>
           </div>
           <form className="Form-info">
             <label className="Form-info-label">Full name</label>
@@ -46,12 +48,11 @@ const Signup = () => {
               buttonText="Login"
               onSuccess={responseGoogle}
               onFailure={responseGoogle}
-              cookiePolicy={"single_host_origin"}
-            >
-            </GoogleLogin>
+              cookiePolicy={'single_host_origin'}
+            ></GoogleLogin>
           </form>
         </div>
-        </div>
+      </div>
     </div>
   );
 };

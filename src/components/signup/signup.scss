@@ -1,4 +1,4 @@
-@import url("./../style/main.scss");
+@import url('../../style/main.scss');
 
 .Signup-box {
   display: -webkit-flex;
@@ -16,15 +16,19 @@
       padding-top: 20px;
       display: flex;
       flex-flow: column;
-      .Signup-header-gettingStarted{
-        font-family: "Exo", sans-serif;
-        font-size: 3.0rem;
+      .Signup-header-gettingStarted {
+        font-family: 'Exo', sans-serif;
+        font-size: 3rem;
         font-weight: bold;
       }
-      .Signup-header-aha{
+      .Signup-header-aha {
         padding-top: 10px;
         font-size: 1.2rem;
-        opacity: 0.7;
+        color: var(--green);
+        border-bottom: solid 1px transparent;
+      }
+      .Signup-header-aha:hover {
+        border-bottom: solid 1px var(--green);
       }
     }
     .Form-info {

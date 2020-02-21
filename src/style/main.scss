@@ -1,20 +1,20 @@
-@import url("./Reset.css");
-@import url("./Colors.css");
+@import url('./Reset.css');
+@import url('./Colors.css');
 
 body {
-  font-family: "Montserrat", "Comfortaa";
+  font-family: 'Montserrat', 'Comfortaa';
   color: var(--black-coral);
   overflow-x: hidden;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
 
-  a{
+  a {
     cursor: pointer;
     width: fit-content;
   }
   a:hover {
     border-bottom: solid 1px;
   }
-  
+
   button {
     cursor: pointer;
     opacity: 0.7;
@@ -48,7 +48,7 @@ body {
         opacity: 0.5;
       }
       .Form-title-versus {
-        font-family: "Exo", sans-serif;
+        font-family: 'Exo', sans-serif;
         font-size: 5rem;
         font-weight: bold;
         position: absolute;
@@ -60,7 +60,7 @@ body {
       flex-flow: column;
       width: 250px;
       font-size: 1rem;
-      font-family: "Exo", sans-serif;
+      font-family: 'Exo', sans-serif;
       padding-top: 110px;
       label {
         opacity: 0.7;
@@ -73,7 +73,7 @@ body {
         padding-left: 5px;
         padding-bottom: 3px;
         color: var(--dark-green);
-        font-family: "Exo", sans-serif;
+        font-family: 'Exo', sans-serif;
         font-weight: bold;
         font-size: 1rem;
       }
@@ -90,6 +90,5 @@ body {
         background-color: var(--light-green);
       }
     }
-    
   }
 }
