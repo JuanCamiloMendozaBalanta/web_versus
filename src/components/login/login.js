@@ -32,14 +32,14 @@ const validate = values => {
   return errors;
 };
 
-const onSubmit = async values => {
-  await actionLogin.login(values);
-};
-
 const Login = props => {
-  const { handleSubmit, submitting } = props;
+  const { handleSubmit, submitting, login } = props;
   const responseGoogle = response => {
     console.log('===>', response);
+  };
+
+  const onSubmit = async values => {
+    await login(values);
   };
 
   return (
@@ -50,7 +50,7 @@ const Login = props => {
             <div className="Form-title-welcome">Welcome to</div>
             <div className="Form-title-versus">versus</div>
           </div>
-          <form className="Form-info" onSubmit={handleSubmit}>
+          <form className="Form-info" onSubmit={handleSubmit(onSubmit)}>
             <Field
               name="email"
               label="Email"
@@ -103,11 +103,11 @@ const Login = props => {
 
 export default connect(
   null,
+  //mapDispatchToProps
   actionLogin
 )(
   reduxForm({
     form: 'loginForm',
-    validate,
-    onSubmit
+    validate
   })(Login)
 );

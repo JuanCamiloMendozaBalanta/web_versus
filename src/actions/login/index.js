@@ -3,20 +3,20 @@ const { apiUrl } = require('../../configuration');
 
 export const USER = 'USER';
 
-export const login = async info => {
+export const login = info => {
   try {
     console.log('===>', info);
-    return dispatch => {
+    return function(dispatch) {
       console.log('===>', info);
-      return axios
+      axios
         .post(`${apiUrl}/login`, info)
         .then(response => {
           const { data } = response;
           localStorage.setItem('token', data.token);
-          dispatch({
-            type: USER,
-            payload: data.player
-          });
+          /*dispatch({
+          type: USER,
+          payload: data.player
+        });*/
           return data.player;
         })
         .catch(error => {
