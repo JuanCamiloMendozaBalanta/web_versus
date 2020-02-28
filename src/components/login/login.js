@@ -39,7 +39,8 @@ const Login = props => {
   };
 
   const onSubmit = async values => {
-    await login(values);
+    const res = await login(values);
+    console.log('===>', res);
   };
 
   return (

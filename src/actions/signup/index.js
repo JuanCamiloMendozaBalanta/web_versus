@@ -3,20 +3,20 @@ import history from '../../history';
 
 const { apiUrl } = require('../../configuration');
 
-export const LOGIN = 'LOGIN';
+export const SIGNUP = 'SIGNUP';
 
-export const login = info => {
+export const signup = info => {
   try {
-    return dispatch => {
+    return function(dispatch) {
       axios
-        .post(`${apiUrl}/login`, info)
+        .post(`${apiUrl}/signup`, info)
         .then(response => {
           const { data } = response;
           const { token, player } = data;
           localStorage.setItem('token', token);
           localStorage.setItem('player', JSON.stringify(player));
           dispatch({
-            type: LOGIN,
+            type: SIGNUP,
             payload: player
           });
           history.push('/dashboard');
