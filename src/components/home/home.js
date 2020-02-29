@@ -15,7 +15,6 @@ import Dashboard from '../dashboard/dashboard';
 class Home extends Component {
   render() {
     const player = localStorage.getItem('player');
-    console.log('===>', player);
     return (
       <div className="Home-box">
         <Switch>
