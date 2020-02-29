@@ -21,7 +21,7 @@ import { googleClienteId } from '../../configuration';
 import { validateEmail } from '../../utils/index';
 
 const validate = values => {
-  const errors = {};
+  let errors = {};
   if (!values.email) {
     errors.email = 'email is required';
   } else if (!validateEmail(values.email)) {
@@ -39,8 +39,7 @@ const Login = props => {
   };
 
   const onSubmit = async values => {
-    const res = await login(values);
-    console.log('===>', res);
+    await login(values);
   };
 
   return (
@@ -104,7 +103,6 @@ const Login = props => {
 
 export default connect(
   null,
-  //mapDispatchToProps
   actionLogin
 )(
   reduxForm({

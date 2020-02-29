@@ -1,16 +1,45 @@
 //REACT
 import React from 'react';
+import { connect } from 'react-redux';
+import { Field, reduxForm } from 'redux-form';
+import * as actionSignup from '../../actions/signup';
+import { Link } from 'react-router-dom';
+
+//LIBRARIES
+import { GoogleLogin } from 'react-google-login';
+
+//COMPONENTS
+import CustomField from '../customField/customField';
+
+//UTILS
+import { validateEmail } from '../../utils/index';
 
 //STYLE
 import './signup.scss';
 
-//LIBRARIES
-import { GoogleLogin } from 'react-google-login';
-import { Link } from 'react-router-dom';
+const validate = values => {
+  console.log('===>', values);
+  let errors = {};
+  if (!values.fullname) {
+    errors.fullname = 'fullname is required';
+  } else if (!values.email) {
+    errors.email = 'email is required';
+  } else if (!validateEmail(values.email)) {
+    errors.email = 'Invalid email address';
+  } else if (!values.password) {
+    errors.password = 'password is required';
+  }
+  console.log('===>', errors);
+  return errors;
+};
 
-const Signup = () => {
+const Signup = props => {
+  const { handleSubmit, submitting, signup } = props;
   const responseGoogle = response => {
     console.log('===>', response);
+  };
+  const onSubmit = async values => {
+    await signup(values);
   };
   return (
     <div className="Signup-box">
@@ -22,16 +51,40 @@ const Signup = () => {
               Already have an account
             </Link>
           </div>
-          <form className="Form-info">
-            <label className="Form-info-label">Full name</label>
-            <input className="Form-info-input" id="fullname" type="text" />
-            <label className="Form-info-label">Email</label>
-            <input className="Form-info-input" id="email" type="email" />
-            <label className="Form-info-label">Username</label>
-            <input className="Form-info-input" id="username" type="text" />
-            <label className="Form-info-label">Password</label>
-            <input className="Form-info-input" id="password" type="password" />
-            <button className="Form-info-button" type="submit">
+          <form className="Form-info" onSubmit={handleSubmit(onSubmit)}>
+            <Field
+              name="fullname"
+              label="Full name"
+              type="text"
+              placeholder=""
+              component={CustomField}
+            />
+            <Field
+              name="email"
+              label="Email"
+              type="email"
+              placeholder="milo@versus.co"
+              component={CustomField}
+            />
+            <Field
+              name="username"
+              label="Username"
+              type="text"
+              placeholder=""
+              component={CustomField}
+            />
+            <Field
+              name="password"
+              label="Password"
+              type="password"
+              placeholder="........"
+              component={CustomField}
+            />
+            <button
+              disabled={submitting}
+              className="Form-info-button"
+              type="submit"
+            >
               SIGNUP
             </button>
             <GoogleLogin
@@ -57,4 +110,12 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default connect(
+  null,
+  actionSignup
+)(
+  reduxForm({
+    form: 'signupForm',
+    validate
+  })(Signup)
+);

@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 //ROUTES
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 //REDUX
 import { connect } from 'react-redux';

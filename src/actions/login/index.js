@@ -6,26 +6,22 @@ const { apiUrl } = require('../../configuration');
 export const LOGIN = 'LOGIN';
 
 export const login = info => {
-  try {
-    return dispatch => {
-      axios
-        .post(`${apiUrl}/login`, info)
-        .then(response => {
-          const { data } = response;
-          const { token, player } = data;
-          localStorage.setItem('token', token);
-          localStorage.setItem('player', JSON.stringify(player));
-          dispatch({
-            type: LOGIN,
-            payload: player
-          });
-          history.push('/dashboard');
-        })
-        .catch(error => {
-          console.log(error);
+  return dispatch => {
+    axios
+      .post(`${apiUrl}/login`, info)
+      .then(response => {
+        const { data } = response;
+        const { token, player } = data;
+        localStorage.setItem('token', token);
+        localStorage.setItem('player', JSON.stringify(player));
+        dispatch({
+          type: LOGIN,
+          payload: player
         });
-    };
-  } catch (error) {
-    console.log(error);
-  }
+        history.push('/dashboard');
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 };
