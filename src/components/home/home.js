@@ -11,7 +11,6 @@ import { connect } from 'react-redux';
 import Login from '../login/login';
 import Signup from '../signup/signup';
 import Dashboard from '../dashboard/dashboard';
-import { LOGIN } from '../../actions/login';
 
 class Home extends Component {
   render() {
