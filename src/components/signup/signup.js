@@ -52,7 +52,16 @@ const Signup = props => {
     console.log('===>', response);
   };
   const onSubmit = async values => {
-    await signup(values);
+    const { firstname, lastname, email, borndate, username, password } = values;
+    console.log('===>', {
+      firstname,
+      lastname,
+      email,
+      borndate,
+      username,
+      password
+    });
+    //await signup(values);
   };
   return (
     <div className="Signup-box">

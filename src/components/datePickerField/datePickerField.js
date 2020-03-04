@@ -13,7 +13,7 @@ import './datePickerField.scss';
 moment.locale('es', esLocale);
 
 const DatePickerField = props => {
-  const { label, input, disabled, placeholder, meta } = props;
+  const { label, input, placeholder, meta } = props;
   const { touched, error, warning } = meta;
 
   const [focused, setFocused] = useState(false);
@@ -25,9 +25,13 @@ const DatePickerField = props => {
     input.onFocus(value);
   };
 
-  const formatDates = value => (value ? moment(value) : null);
+  const getDate = value => {
+    return value && value !== '' ? moment(value) : moment();
+  };
 
-  const normalizeDates = value => (value ? value.format('YYYY-MM-DD') : null);
+  const isBlocked = day => {
+    return moment(day).isAfter(moment());
+  };
 
   return (
     <div className="DatePickerField-box">
@@ -38,15 +42,14 @@ const DatePickerField = props => {
           showDefaultInputIcon={true}
           displayFormat="YYYY-MM-DD"
           numberOfMonths={1}
-          disabled={disabled}
           placeholder={placeholder}
-          date={input.value}
+          date={getDate(input.value)}
           onDateChange={input.onChange}
           focused={focused}
           onFocusChange={onFocusChange}
           id={input.name}
-          parse={normalizeDates}
-          format={formatDates}
+          enableOutsideDays={false}
+          isOutsideRange={day => isBlocked(day)}
         />
       </React.Fragment>
       {touched &&
