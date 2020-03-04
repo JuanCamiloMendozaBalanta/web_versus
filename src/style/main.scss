@@ -65,22 +65,21 @@ body {
       .CustomField-box {
         margin-bottom: 20px;
       }
-      label {
+      .Form-info-label {
         opacity: 0.7;
         margin-bottom: 8px;
       }
-      input {
+      .Form-info-input {
         border: none;
         border-bottom: solid 1px;
-        padding-left: 5px;
-        padding-bottom: 3px;
+        padding: 0px 0px 3px 5px;
         margin-bottom: 10px;
         color: var(--dark-green);
         font-family: 'Exo', sans-serif;
         font-weight: bold;
         font-size: 1rem;
       }
-      button {
+      .Form-info-button {
         margin-top: 20px;
         background-color: var(--green);
         padding: 20px;

@@ -76,7 +76,7 @@ const Login = props => {
               clientId={googleClienteId}
               render={renderProps => (
                 <button
-                  className="Form-info-button-google"
+                  className="Form-info-button-google Form-info-button"
                   onClick={renderProps.onClick}
                   disabled={renderProps.disabled}
                 >

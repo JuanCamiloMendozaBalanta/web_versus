@@ -11,12 +11,12 @@ export const login = info => {
       .post(`${apiUrl}/login`, info)
       .then(response => {
         const { data } = response;
-        const { token, player } = data;
+        const { token, user } = data;
         localStorage.setItem('token', token);
-        localStorage.setItem('player', JSON.stringify(player));
+        localStorage.setItem('user', JSON.stringify(user));
         dispatch({
           type: LOGIN,
-          payload: player
+          payload: user
         });
         history.push('/dashboard');
       })

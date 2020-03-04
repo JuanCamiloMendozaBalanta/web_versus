@@ -14,14 +14,14 @@ import Dashboard from '../dashboard/dashboard';
 
 class Home extends Component {
   render() {
-    const player = localStorage.getItem('player');
+    const user = localStorage.getItem('user');
     return (
       <div className="Home-box">
         <Switch>
           <Route path="/signup" component={Signup} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/login" component={Login} />
-          <Route path="/" component={player ? Dashboard : Login} />
+          <Route path="/" component={user ? Dashboard : Login} />
         </Switch>
       </div>
     );

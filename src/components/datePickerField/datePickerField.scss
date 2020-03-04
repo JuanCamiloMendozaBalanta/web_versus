@@ -1,0 +1,49 @@
+@import url('../../style/main.scss');
+
+.DatePickerField-box {
+  display: -webkit-flex;
+  flex-flow: column;
+  width: 100%;
+  margin-bottom: 20px;
+  .SingleDatePicker,
+  .SingleDatePicker_1 {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .SingleDatePickerInput__showClearDate {
+    width: 100%;
+  }
+  .SingleDatePickerInput__withBorder {
+    border: none;
+    border-bottom: solid 1px;
+  }
+  .SingleDatePickerInput__showClearDate {
+    padding: 0px;
+    border-radius: 0px;
+  }
+  .SingleDatePickerInput_calendarIcon,
+  .SingleDatePickerInput_calendarIcon_1 {
+    padding: 0px 8px 6px 5px;
+    margin: 0px;
+    outline: none;
+  }
+  .DateInput,
+  .DateInput_1 {
+    width: 90%;
+  }
+  .DateInput_input,
+  .DateInput_input_1 {
+    padding: 0px;
+    color: var(--dark-green);
+    font-family: 'Exo', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  .SingleDatePickerInput_clearDate {
+    padding: 0px;
+    margin: 0px;
+  }
+  .SingleDatePickerInput_clearDate:hover {
+    background-color: transparent;
+  }
+}

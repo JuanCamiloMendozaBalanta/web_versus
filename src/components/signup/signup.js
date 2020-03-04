@@ -10,6 +10,7 @@ import { GoogleLogin } from 'react-google-login';
 
 //COMPONENTS
 import CustomField from '../customField/customField';
+import DatePickerField from '../datePickerField/datePickerField';
 
 //UTILS
 import { validateEmail } from '../../utils/index';
@@ -18,18 +19,30 @@ import { validateEmail } from '../../utils/index';
 import './signup.scss';
 
 const validate = values => {
-  console.log('===>', values);
   let errors = {};
-  if (!values.fullname) {
-    errors.fullname = 'fullname is required';
+  if (!values.firstname) {
+    errors.firstname = 'Firstname is required';
+  } else if (!values.lastname) {
+    errors.lastname = 'Lastname is required';
+  } else if (!values.borndate) {
+    errors.borndate = 'Born date is required';
   } else if (!values.email) {
-    errors.email = 'email is required';
+    errors.email = 'Email is required';
   } else if (!validateEmail(values.email)) {
     errors.email = 'Invalid email address';
+  } else if (!values.username) {
+    errors.username = 'Username is required';
   } else if (!values.password) {
-    errors.password = 'password is required';
+    errors.password = 'Password is required';
+  } else if (!values.confirmPassword) {
+    errors.confirmPassword = 'Confirm password is required';
+  } else if (
+    values.password &&
+    values.confirmPassword &&
+    values.password !== values.confirmPassword
+  ) {
+    errors.confirmPassword = `password doesn't match`;
   }
-  console.log('===>', errors);
   return errors;
 };
 
@@ -53,11 +66,24 @@ const Signup = props => {
           </div>
           <form className="Form-info" onSubmit={handleSubmit(onSubmit)}>
             <Field
-              name="fullname"
-              label="Full name"
+              name="firstname"
+              label="First name"
               type="text"
-              placeholder=""
+              placeholder="Juan"
               component={CustomField}
+            />
+            <Field
+              name="lastname"
+              label="Last name"
+              type="text"
+              placeholder="Mendoza"
+              component={CustomField}
+            />
+            <Field
+              label="Born date"
+              placeholder="25/02/1995"
+              name="borndate"
+              component={DatePickerField}
             />
             <Field
               name="email"
@@ -70,12 +96,19 @@ const Signup = props => {
               name="username"
               label="Username"
               type="text"
-              placeholder=""
+              placeholder={`Milo "el tinto" mendoza`}
               component={CustomField}
             />
             <Field
               name="password"
               label="Password"
+              type="password"
+              placeholder="........"
+              component={CustomField}
+            />
+            <Field
+              name="confirmPassword"
+              label="Confirm Password"
               type="password"
               placeholder="........"
               component={CustomField}
@@ -91,7 +124,7 @@ const Signup = props => {
               clientId="626485962471-pfovkpdk1h19brtirr8e7q95thbhbh4v.apps.googleusercontent.com"
               render={renderProps => (
                 <button
-                  className="Form-info-button-google"
+                  className="Form-info-button-google Form-info-button"
                   onClick={renderProps.onClick}
                   disabled={renderProps.disabled}
                 >

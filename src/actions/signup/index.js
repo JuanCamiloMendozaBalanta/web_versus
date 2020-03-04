@@ -8,15 +8,15 @@ export const SIGNUP = 'SIGNUP';
 export const signup = info => {
   return function(dispatch) {
     axios
-      .post(`${apiUrl}/signup`, info)
+      .post(`${apiUrl}/user`, info)
       .then(response => {
         const { data } = response;
-        const { token, player } = data;
+        const { token, user } = data;
         localStorage.setItem('token', token);
-        localStorage.setItem('player', JSON.stringify(player));
+        localStorage.setItem('user', JSON.stringify(user));
         dispatch({
           type: SIGNUP,
-          payload: player
+          payload: user
         });
         history.push('/dashboard');
       })
