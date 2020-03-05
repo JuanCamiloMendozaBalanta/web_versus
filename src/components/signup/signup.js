@@ -25,13 +25,15 @@ const validate = values => {
   } else if (!values.lastname) {
     errors.lastname = 'Lastname is required';
   } else if (!values.borndate) {
-    errors.borndate = 'Born date is required';
+    errors.borndate = `Born date is required and can't be today`;
   } else if (!values.email) {
     errors.email = 'Email is required';
   } else if (!validateEmail(values.email)) {
     errors.email = 'Invalid email address';
   } else if (!values.username) {
     errors.username = 'Username is required';
+  } else if (!values.phone) {
+    errors.phone = 'Phone is required';
   } else if (!values.password) {
     errors.password = 'Password is required';
   } else if (!values.confirmPassword) {
@@ -52,16 +54,26 @@ const Signup = props => {
     console.log('===>', response);
   };
   const onSubmit = async values => {
-    const { firstname, lastname, email, borndate, username, password } = values;
-    console.log('===>', {
+    const {
       firstname,
       lastname,
       email,
       borndate,
       username,
+      phone,
       password
-    });
-    //await signup(values);
+    } = values;
+    const formatBornDate = borndate ? borndate.format('YYYY-MM-DD') : '';
+    const data = {
+      firstname,
+      lastname,
+      email,
+      bornDate: formatBornDate,
+      username,
+      phone,
+      password
+    };
+    await signup(data);
   };
   return (
     <div className="Signup-box">
@@ -106,6 +118,13 @@ const Signup = props => {
               label="Username"
               type="text"
               placeholder={`Milo "el tinto" mendoza`}
+              component={CustomField}
+            />
+            <Field
+              name="phone"
+              label="Phone"
+              type="text"
+              placeholder={`31285678990`}
               component={CustomField}
             />
             <Field
