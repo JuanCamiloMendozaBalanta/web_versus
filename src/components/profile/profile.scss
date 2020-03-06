@@ -1,0 +1,97 @@
+@import url('../../style/main.scss');
+
+.Profile-box {
+  display: flex;
+  padding: 30px 20px 20px 0px;
+  flex-flow: column;
+  align-items: center;
+  .Profile-icon {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    margin-bottom: 35px;
+    .material-icons {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+    .material-icons:hover {
+      opacity: 1;
+    }
+    .Profile-person-icon {
+      display: flex;
+      flex-flow: column;
+      margin: 0px 10px 50px 0px;
+      width: 30px;
+      height: 30px;
+      background-color: var(--green);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: 4px;
+      color: white;
+    }
+    .Profile-person-close {
+      color: var(--green);
+    }
+  }
+
+  .Profile-content {
+    display: flex;
+    flex-flow: column;
+    .Profile-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+      .Profile-photo {
+        border-radius: 3px;
+        width: 30px;
+      }
+      .Profile-name {
+        font-weight: bold;
+        margin-left: 10px;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        color: var(--green);
+        font-family: 'Exo', sans-serif;
+      }
+    }
+    .Profile-routes {
+      width: 145px;
+      .Nav-route {
+        font-size: 1rem;
+        text-transform: capitalize;
+        margin-bottom: 10px;
+        cursor: pointer;
+        color: var(--gray);
+        display: flex;
+        align-items: center;
+        .material-icons {
+          margin-right: 17px;
+          font-size: 22px;
+        }
+        .isSelectedIcon {
+          color: var(--light-green);
+        }
+      }
+      .isSelected {
+        border-right: solid 3px var(--light-green);
+        font-weight: bold;
+        color: black;
+      }
+      .Nav-route:hover {
+        font-weight: bold;
+        color: black;
+        .material-icons {
+          color: var(--light-green);
+        }
+      }
+    }
+  }
+}
+
+.Active-profile {
+  padding-left: 20px;
+  min-height: 700px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+  width: 150px;
+}

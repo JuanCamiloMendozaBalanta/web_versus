@@ -1,0 +1,105 @@
+@import url('../../style/main.scss');
+
+.Nav-box {
+  display: flex;
+  padding: 30px 0px 20px 20px;
+  flex-flow: column;
+  .Nav-custom-icon {
+    display: flex;
+    flex-flow: column;
+    margin: 0px 10px 50px 0px;
+    align-items: flex-end;
+    opacity: 0.7;
+    cursor: pointer;
+    position: relative;
+    .Nav-line {
+      position: relative;
+      transition: transform 0.3s, width 0.3s;
+      background-color: var(--green);
+      color: transparent;
+      margin-bottom: 5px;
+      width: 25px;
+      height: 4px;
+    }
+  }
+  .Nav-custom-icon:hover {
+    opacity: 1;
+  }
+  .Active-menu {
+    .Nav-line {
+      position: absolute;
+      height: 2px;
+      &:nth-child(1) {
+        top: 2px;
+        transform: rotate(135deg);
+        transition: transform 0.5s;
+      }
+      &:nth-child(2) {
+        width: 0;
+        transition: width 0.3s;
+      }
+      &:nth-child(3) {
+        bottom: -9px;
+        transform: rotate(-135deg);
+        transition: transform 0.5s;
+      }
+    }
+  }
+  .Nav-content {
+    display: flex;
+    flex-flow: column;
+    .Nav-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+      .Nav-logo {
+        border-radius: 3px;
+        width: 30px;
+      }
+      .Nav-name {
+        font-weight: bold;
+        margin-left: 10px;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        color: var(--green);
+        font-family: 'Exo', sans-serif;
+      }
+    }
+    .Nav-routes {
+      width: 145px;
+      .Nav-route {
+        font-size: 1rem;
+        text-transform: capitalize;
+        margin-bottom: 10px;
+        cursor: pointer;
+        color: var(--gray);
+        display: flex;
+        align-items: center;
+        .material-icons {
+          margin-right: 17px;
+          font-size: 22px;
+        }
+        .isSelectedIcon {
+          color: var(--light-green);
+        }
+      }
+      .isSelected {
+        border-right: solid 3px var(--light-green);
+        font-weight: bold;
+        color: black;
+      }
+      .Nav-route:hover {
+        font-weight: bold;
+        color: black;
+        .material-icons {
+          color: var(--light-green);
+        }
+      }
+    }
+  }
+}
+
+.Active-nav {
+  min-height: 700px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+}

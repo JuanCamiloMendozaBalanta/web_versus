@@ -77,7 +77,7 @@ const DatePickerField = props => {
           id={input.name}
           enableOutsideDays={false}
           isOutsideRange={day => isBlocked(day)}
-          //renderMonthElement={renderMonthElement}
+          renderMonthElement={renderMonthElement}
         />
       </React.Fragment>
       {touched &&

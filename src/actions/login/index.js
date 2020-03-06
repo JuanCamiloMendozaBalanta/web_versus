@@ -14,11 +14,11 @@ export const login = info => {
         const { token, user } = data;
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(user));
+        history.push('/dashboard');
         dispatch({
           type: LOGIN,
           payload: user
         });
-        history.push('/dashboard');
       })
       .catch(error => {
         console.log(error);
