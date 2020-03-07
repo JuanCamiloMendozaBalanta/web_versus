@@ -3,7 +3,7 @@ import history from '../../history';
 
 const { apiUrl } = require('../../configuration');
 
-export const LOGIN = 'LOGIN';
+export const AUTH = 'AUTH';
 
 export const login = info => {
   return dispatch => {
@@ -14,11 +14,32 @@ export const login = info => {
         const { token, user } = data;
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(user));
-        history.push('/dashboard');
         dispatch({
-          type: LOGIN,
+          type: AUTH,
           payload: user
         });
+        history.push('/dashboard');
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+};
+
+export const signup = info => {
+  return function(dispatch) {
+    axios
+      .post(`${apiUrl}/user`, info)
+      .then(response => {
+        const { data } = response;
+        const { token, user } = data;
+        localStorage.setItem('token', token);
+        localStorage.setItem('user', JSON.stringify(user));
+        dispatch({
+          type: AUTH,
+          payload: user
+        });
+        history.push('/dashboard');
       })
       .catch(error => {
         console.log(error);

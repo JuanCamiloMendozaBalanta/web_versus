@@ -10,7 +10,8 @@ class Profile extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      showProfile: false
+      showProfile: false,
+      user: JSON.parse(localStorage.getItem('user'))
     };
   }
 
@@ -21,8 +22,7 @@ class Profile extends PureComponent {
   };
 
   render() {
-    const { showProfile } = this.state;
-    const { user } = this.props;
+    const { showProfile, user } = this.state;
     return (
       <div className={`Profile-box ${showProfile ? 'Active-profile' : ''}`}>
         <div className={`Profile-icon`}>
@@ -46,8 +46,7 @@ class Profile extends PureComponent {
           <div className="Profile-content">
             <header className="Profile-header">
               <img className="Profile-photo" src={logo} alt="profile" />
-              {console.log('===>', user)}
-              <p className="Profile-name">{user.name}</p>
+              <p className="Profile-name">{user.username}</p>
             </header>
             {/*<ul className="Nav-routes">
               {routes.map((item, i) => {

@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import * as actionLogin from '../../actions/login';
+import * as actionLogin from '../../actions/auth';
 
 //STYLE
 import './login.scss';

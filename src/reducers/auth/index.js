@@ -1,9 +1,9 @@
-import { SIGNUP } from '../../actions/signup';
+import { AUTH } from '../../actions/auth';
 const INITIAL_STATE = { user: {} };
-export const signupReducer = (state = INITIAL_STATE, action) => {
+export const authReducer = (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
   switch (type) {
-    case SIGNUP:
+    case AUTH:
       return { ...state, user: payload };
     default:
       return state;

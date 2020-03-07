@@ -4,9 +4,6 @@ import React, { PureComponent } from 'react';
 //ROUTES
 import { Switch, Route } from 'react-router-dom';
 
-//REDUX
-import { connect } from 'react-redux';
-
 //UTILS
 import { routes } from '../../utils';
 
@@ -26,7 +23,8 @@ class Home extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      routes
+      routes,
+      user: JSON.parse(localStorage.getItem('user'))
     };
   }
   setCurrentRoute = route => {
@@ -45,12 +43,9 @@ class Home extends PureComponent {
   };
 
   render() {
-    const { routes } = this.state;
-    const user = localStorage.getItem('user');
-
+    const { routes, user } = this.state;
     return (
       <div className="Home-box">
-        {console.log('===>', user)}
         {user && <Nav routes={routes} setCurrentRoute={this.setCurrentRoute} />}
         <Switch>
           <Route exact path="/signup" component={Signup} />
@@ -64,9 +59,5 @@ class Home extends PureComponent {
     );
   }
 }
-function mapStateToProps(state) {
-  return {
-    user: state.user
-  };
-}
-export default connect(mapStateToProps)(Home);
+
+export default Home;
