@@ -1,0 +1,11 @@
+.Internal-section-box {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  .Internal-section-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: 'Exo', sans-serif;
+    margin-bottom: 10px;
+  }
+}

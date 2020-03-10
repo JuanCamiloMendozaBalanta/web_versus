@@ -2,7 +2,7 @@
 
 .Profile-box {
   display: flex;
-  padding: 15px 20px 20px 0px;
+  padding: 20px 20px 20px 0px;
   flex-flow: column;
   align-items: center;
   .Profile-icon {
@@ -77,11 +77,11 @@
       .isSelected {
         border-right: solid 3px var(--light-green);
         font-weight: bold;
-        color: black;
+        color: var(--black);
       }
       .Nav-route:hover {
         font-weight: bold;
-        color: black;
+        color: var(--black);
         .material-icons {
           color: var(--light-green);
         }

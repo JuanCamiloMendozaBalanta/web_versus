@@ -1,0 +1,30 @@
+@import url('../../style/main.scss');
+
+.Roles-box {
+  display: flex;
+  flex-flow: column;
+  .Roles-header {
+    display: flex;
+    justify-content: space-between;
+    .Roles-descriprion {
+      font-size: 1rem;
+      color: gray;
+    }
+    .Roles-add-role {
+      display: flex;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: bold;
+      cursor: pointer;
+      justify-content: center;
+      align-items: center;
+      padding: 0px 5px;
+      .Roles-add-text {
+        margin-right: 5px;
+      }
+      .material-icons {
+        font-size: 16px;
+      }
+    }
+  }
+}

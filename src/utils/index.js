@@ -23,6 +23,10 @@ const routes = [
   {
     state: 0,
     route: 'calendar'
+  },
+  {
+    state: 0,
+    route: 'settings'
   }
 ];
 module.exports = {

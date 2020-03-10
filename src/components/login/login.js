@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import * as actionLogin from '../../actions/auth';
+import * as actionAuth from '../../actions/auth';
 
 //STYLE
 import './login.scss';
@@ -103,7 +103,7 @@ const Login = props => {
 
 export default connect(
   null,
-  actionLogin
+  actionAuth
 )(
   reduxForm({
     form: 'loginForm',

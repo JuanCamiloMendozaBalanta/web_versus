@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import history from '../../history';
+import history from '../../../history';
 
 export default function requireAuth(ComposedComponent) {
   class Authentication extends Component {
@@ -11,7 +11,7 @@ export default function requireAuth(ComposedComponent) {
       }
     };
 
-    componentWillUpdate = nextProps => {
+    componentWillUpdate = () => {
       const user = localStorage.getItem('user');
       if (user) {
         history.push('/login');

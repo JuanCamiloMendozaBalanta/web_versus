@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import * as actionSignup from '../../actions/signup';
+import * as actionAuth from '../../actions/auth';
 import { Link } from 'react-router-dom';
 
 //LIBRARIES
@@ -173,7 +173,7 @@ const Signup = props => {
 
 export default connect(
   null,
-  actionSignup
+  actionAuth
 )(
   reduxForm({
     form: 'signupForm',

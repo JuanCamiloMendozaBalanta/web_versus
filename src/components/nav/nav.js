@@ -28,6 +28,9 @@ class Nav extends PureComponent {
       case 'calendar':
         icon = 'calendar_today';
         break;
+      case 'settings':
+        icon = 'settings';
+        break;
       default:
         break;
     }
