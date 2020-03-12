@@ -13,23 +13,33 @@ import Profile from '../profile/profile';
 import Settings from '../settings/settings';
 
 //HOC
-import RequireAuth from '../hocs/auth/requireAuth';
+import {
+  RequireAuthHoc,
+  RequireNoAuthHoc,
+  ShowComponentHoc
+} from '../hocs/auth';
 
 //STYLE
 import './home.scss';
 class Home extends PureComponent {
   render() {
+    const WrapNav = ShowComponentHoc(Nav);
+    const WrapProfile = ShowComponentHoc(Profile);
     return (
       <div className="Home-box">
-        <Nav />
+        <WrapNav />
         <Switch>
           <Route exact path="/signup" component={Signup} />
-          <Route exact path="/dashboard" component={RequireAuth(Dashboard)} />
-          <Route exact path="/settings" component={RequireAuth(Settings)} />
-          <Route exact path="/login" component={Login} />
+          <Route
+            exact
+            path="/dashboard"
+            component={RequireAuthHoc(Dashboard)}
+          />
+          <Route exact path="/settings" component={RequireAuthHoc(Settings)} />
+          <Route exact path="/login" component={RequireNoAuthHoc(Login)} />
           <Route component={Login} />
         </Switch>
-        <Profile />
+        <WrapProfile />
       </div>
     );
   }
