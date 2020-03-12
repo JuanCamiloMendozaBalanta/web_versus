@@ -1,19 +1,19 @@
 @import url('../../style/main.scss');
 
-.Roles-box {
+.RolesOverview-box {
   display: flex;
   flex-flow: column;
-  .Roles-header {
+  .RolesOverview-header {
     display: flex;
     justify-content: space-between;
     margin-bottom: 25px;
     height: 18px;
 
-    .Roles-descriprion {
+    .RolesOverview-descriprion {
       font-size: 1rem;
       color: gray;
     }
-    .Roles-add-role {
+    .RolesOverview-add-role {
       display: flex;
       align-items: center;
       font-size: 0.8rem;
@@ -22,7 +22,7 @@
       justify-content: center;
       align-items: center;
       padding: 0px 5px;
-      .Roles-add-text {
+      .RolesOverview-add-text {
         margin-right: 5px;
       }
       .material-icons {
@@ -30,11 +30,12 @@
       }
     }
   }
-  .Roles-content {
+  .RolesOverview-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    .Roles-role {
+    .RolesOverview-role {
+      width: 203px;
       display: flex;
       align-items: center;
       padding: 10px;
@@ -46,7 +47,7 @@
       justify-content: space-between;
       border-radius: 5px;
       font-size: 0.76rem;
-      .Roles-role-code {
+      .RolesOverview-role-code {
         font-weight: bold;
         font-size: 0.9rem;
         background-color: var(--light-green);
@@ -58,13 +59,13 @@
         align-items: center;
         justify-content: center;
       }
-      .Roles-role-name {
-        width: 114px;
+      .RolesOverview-role-name {
         padding: 0px 5px;
         line-height: 1rem;
+        width: 70%;
       }
     }
-    .Roles-role:hover {
+    .RolesOverview-role:hover {
       opacity: 1;
     }
   }

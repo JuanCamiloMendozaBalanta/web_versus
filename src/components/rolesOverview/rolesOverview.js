@@ -6,9 +6,9 @@ import { connect } from 'react-redux';
 import * as actionRoles from '../../actions/roles';
 
 //STYLE
-import './roles.scss';
+import './rolesOverview.scss';
 
-class Roles extends PureComponent {
+class RolesOverview extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,23 +27,25 @@ class Roles extends PureComponent {
   render() {
     const { roles } = this.props;
     return (
-      <div className="Roles-box">
-        <header className="Roles-header">
-          <p className="Roles-descriprion">Manage your roles</p>
-          <a className="Roles-add-role" href="/home">
-            <span className="Roles-add-text">Add role</span>
+      <div className="RolesOverview-box">
+        <header className="RolesOverview-header">
+          <p className="RolesOverview-descriprion">Manage your roles</p>
+          <a className="RolesOverview-add-role" href="/roles">
+            <span className="RolesOverview-add-text">Add roles</span>
             <i className={`material-icons`}>arrow_forward</i>
           </a>
         </header>
-        <ul className="Roles-content">
+        <ul className="RolesOverview-content">
           {roles.map((item, i) => {
             return (
               <li
-                className={`Roles-role ${item.state ? 'isSelected' : ''}`}
+                className={`RolesOverview-role ${
+                  item.state ? 'isSelected' : ''
+                }`}
                 key={i}
               >
-                <span className="Roles-role-code">{item.code}</span>
-                <span className="Roles-role-name">{item.name}</span>
+                <span className="RolesOverview-role-code">{item.code}</span>
+                <span className="RolesOverview-role-name">{item.name}</span>
                 <i className={`material-icons`}>arrow_forward</i>
               </li>
             );
@@ -60,4 +62,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, actionRoles)(Roles);
+export default connect(mapStateToProps, actionRoles)(RolesOverview);

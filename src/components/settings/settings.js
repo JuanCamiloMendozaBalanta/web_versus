@@ -8,14 +8,14 @@ import './settings.scss';
 import InternalSection from '../hocs/internalSection/internalSection';
 
 //COMPONENTS
-import Roles from '../roles/roles';
+import RolesOverview from '../rolesOverview/rolesOverview';
 
 class Settings extends PureComponent {
   render() {
-    const WrapRoles = InternalSection(Roles, 'Roles');
+    const WrapRolesOverview = InternalSection(RolesOverview, 'Roles');
     return (
       <div className="Wrap Settings-box">
-        <WrapRoles />
+        <WrapRolesOverview />
       </div>
     );
   }
