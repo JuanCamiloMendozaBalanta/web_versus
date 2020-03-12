@@ -13,7 +13,7 @@ export default function requireAuth(ComposedComponent) {
 
     componentWillUpdate = () => {
       const user = JSON.parse(localStorage.getItem('user'));
-      if (user) {
+      if (!user) {
         history.push('/login');
       }
     };
