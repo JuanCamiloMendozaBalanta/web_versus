@@ -46,3 +46,19 @@ export const signup = info => {
       });
   };
 };
+
+export const reloadUser = () => {
+  return function(dispatch) {
+    try {
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (user) {
+        dispatch({
+          type: AUTH,
+          payload: user
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};

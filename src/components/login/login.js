@@ -3,7 +3,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import * as actionAuth from '../../actions/auth';
 
 //STYLE
 import './login.scss';
@@ -19,6 +18,9 @@ import { googleClienteId } from '../../configuration';
 
 //UTILS
 import { validateEmail } from '../../utils/index';
+
+//ACTIONS
+import * as actionAuth from '../../actions/auth';
 
 const validate = values => {
   let errors = {};

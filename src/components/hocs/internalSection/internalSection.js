@@ -5,10 +5,6 @@ import './internalSection.scss';
 
 export default function internalSection(ComposedComponent, title) {
   class Section extends Component {
-    constructor(props) {
-      super(props);
-    }
-
     render() {
       return (
         <section className="Internal-section-box">

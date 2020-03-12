@@ -10,7 +10,7 @@ class Roles extends PureComponent {
       <div className="Roles-box">
         <header className="Roles-header">
           <p className="Roles-descriprion">Manage your roles</p>
-          <a className="Roles-add-role">
+          <a className="Roles-add-role" href="/home">
             <span className="Roles-add-text">Add role</span>
             <i className={`material-icons`}>arrow_forward</i>
           </a>
