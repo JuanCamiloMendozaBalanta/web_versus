@@ -32,10 +32,12 @@ class Home extends PureComponent {
       routes
     };
   }
+
   componentWillMount = async () => {
     const { reloadUser } = this.props;
     await reloadUser();
   };
+
   setCurrentRoute = async route => {
     const { routes } = this.state;
     const newRoutes = routes.map(ele => {
