@@ -1,5 +1,9 @@
 //REACT
 import React, { PureComponent } from 'react';
+import history from '../../history';
+
+//UTILS
+import { routes } from '../../utils';
 
 //STYLE
 import './nav.scss';
@@ -10,9 +14,23 @@ class Nav extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      showNav: false
+      showNav: false,
+      routes
     };
   }
+
+  initRoutes = () => {
+    const { pathname } = history.location;
+    const urlRoute = pathname.split('/').pop();
+    const route = routes.find(ele => ele.route === urlRoute);
+    if (route) {
+      this.setCurrentRoute(urlRoute);
+    }
+  };
+  componentWillMount = () => {
+    this.initRoutes();
+  };
+
   getIcon = name => {
     let icon = '';
     switch (name) {
@@ -36,6 +54,23 @@ class Nav extends PureComponent {
     }
     return icon;
   };
+
+  setCurrentRoute = async route => {
+    const { routes } = this.state;
+    const newRoutes = routes.map(ele => {
+      if (ele.route === route) {
+        ele.state = 1;
+      } else {
+        ele.state = 0;
+      }
+      return ele;
+    });
+    this.setState({
+      routes: newRoutes
+    });
+    await history.push(`/${route}`);
+  };
+
   setShowNav = showNav => {
     this.setState({
       showNav: !showNav
@@ -43,8 +78,7 @@ class Nav extends PureComponent {
   };
 
   render() {
-    const { showNav } = this.state;
-    const { routes, setCurrentRoute } = this.props;
+    const { showNav, routes } = this.state;
     return (
       <nav className={`Nav-box ${showNav ? 'Active-nav' : ''}`}>
         <div
@@ -67,7 +101,7 @@ class Nav extends PureComponent {
                   <li
                     className={`Nav-route ${item.state ? 'isSelected' : ''}`}
                     key={i}
-                    onClick={() => setCurrentRoute(item.route)}
+                    onClick={() => this.setCurrentRoute(item.route)}
                   >
                     <i
                       className={`material-icons ${
