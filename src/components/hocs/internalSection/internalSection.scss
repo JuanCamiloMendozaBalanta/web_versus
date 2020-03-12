@@ -1,7 +1,12 @@
 .Internal-section-box {
   display: flex;
   flex-flow: column;
-  width: 100%;
+  max-width: 700px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.06);
+
   .Internal-section-title {
     font-size: 1.2rem;
     font-weight: bold;

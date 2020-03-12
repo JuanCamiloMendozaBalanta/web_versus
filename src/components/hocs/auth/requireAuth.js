@@ -4,7 +4,7 @@ import history from '../../../history';
 export default function requireAuth(ComposedComponent) {
   class Authentication extends Component {
     componentWillMount = () => {
-      const user = localStorage.getItem('user');
+      const user = JSON.parse(localStorage.getItem('user'));
       if (!user) {
         history.push('/login');
         return;
@@ -12,14 +12,14 @@ export default function requireAuth(ComposedComponent) {
     };
 
     componentWillUpdate = () => {
-      const user = localStorage.getItem('user');
+      const user = JSON.parse(localStorage.getItem('user'));
       if (user) {
         history.push('/login');
       }
     };
 
     render() {
-      const user = localStorage.getItem('user');
+      const user = JSON.parse(localStorage.getItem('user'));
       if (!user) return null;
       return <ComposedComponent {...this.props} />;
     }

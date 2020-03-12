@@ -17,7 +17,8 @@ class Roles extends PureComponent {
   }
 
   componentDidMount = async () => {
-    const { getRoles, user } = this.props;
+    const { getRoles } = this.props;
+    const user = JSON.parse(localStorage.getItem('user'));
     await getRoles(user.email);
   };
 
@@ -55,8 +56,7 @@ class Roles extends PureComponent {
 
 const mapStateToProps = state => {
   return {
-    roles: state.roles.roles ? state.roles.roles : null,
-    user: state.auth.user ? state.auth.user : null
+    roles: state.roles.roles ? state.roles.roles : null
   };
 };
 
