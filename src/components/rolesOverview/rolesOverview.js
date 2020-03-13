@@ -1,5 +1,5 @@
 //REACT
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 //ACTIONS
@@ -8,24 +8,18 @@ import * as actionRoles from '../../actions/roles';
 //STYLE
 import './rolesOverview.scss';
 
-class RolesOverview extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      roles: []
-    };
-  }
-
+class RolesOverview extends Component {
   componentDidMount = async () => {
-    const { getRoles } = this.props;
-    const user = JSON.parse(localStorage.getItem('user'));
-    await getRoles(user.email);
+    const { getRoles, roles } = this.props;
+    if ((roles.length === 0) === true) {
+      const user = JSON.parse(localStorage.getItem('user'));
+      await getRoles(user.email);
+    }
   };
-
-  initRoles = async () => {};
 
   render() {
     const { roles } = this.props;
+    console.log('===>', roles);
     return (
       <div className="RolesOverview-box">
         <header className="RolesOverview-header">

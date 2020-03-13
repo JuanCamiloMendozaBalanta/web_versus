@@ -11,6 +11,10 @@ import InternalSection from '../hocs/internalSection/internalSection';
 import RolesOverview from '../rolesOverview/rolesOverview';
 
 class Settings extends PureComponent {
+  componentDidMount = () => {
+    const { setShow } = this.props;
+    setShow(true);
+  };
   render() {
     const WrapRolesOverview = InternalSection(RolesOverview, 'Roles');
     return (
