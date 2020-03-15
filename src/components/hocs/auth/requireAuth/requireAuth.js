@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import history from '../../../history';
+import history from '../../../../history';
 
-export default function requireAuth(ComposedComponent) {
+//STYLE
+import './requireAuth.scss';
+
+export default function requireAuth(ComposedComponent, title) {
   class Authentication extends Component {
     componentWillMount = () => {
       const user = JSON.parse(localStorage.getItem('user'));
@@ -21,7 +24,12 @@ export default function requireAuth(ComposedComponent) {
     render() {
       const user = JSON.parse(localStorage.getItem('user'));
       if (!user) return null;
-      return <ComposedComponent {...this.props} />;
+      return (
+        <div className="Wrap-route">
+          {title && <h1 className="Wrap-route-title">{title}</h1>}
+          <ComposedComponent {...this.props} />
+        </div>
+      );
     }
   }
 

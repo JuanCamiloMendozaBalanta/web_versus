@@ -1,4 +1,4 @@
-import RequireAuth from './requireAuth';
+import RequireAuth from './requireAuth/requireAuth';
 import RequireNoAuth from './requireNoAuth';
 import ShowComponent from './show';
 

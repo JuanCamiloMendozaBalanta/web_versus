@@ -38,8 +38,8 @@ class RolesOverview extends Component {
                 }`}
                 key={i}
               >
-                <span className="RolesOverview-role-code">{item.code}</span>
-                <span className="RolesOverview-role-name">{item.name}</span>
+                <p className="RolesOverview-role-code">{item.code}</p>
+                <p className="RolesOverview-role-name">{item.name}</p>
                 <i className={`material-icons`}>arrow_forward</i>
               </li>
             );
